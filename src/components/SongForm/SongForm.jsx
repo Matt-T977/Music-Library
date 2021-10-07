@@ -16,6 +16,7 @@ class SongForm extends Component {
          }
     }
 
+
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value,
@@ -26,9 +27,6 @@ class SongForm extends Component {
         event.preventDefault();
         axios.post('http://127.0.0.1:8000/music/', this.state);
     }
-
-
-
 
     render() { 
         return ( 
@@ -61,4 +59,5 @@ class SongForm extends Component {
     }
 }
  
+
 export default SongForm;

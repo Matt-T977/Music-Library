@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './App.css'
 import Header from './Header/Header';
 import MusicList from './MusicList/MusicList';
 import SongForm from './SongForm/SongForm';
@@ -15,18 +16,22 @@ class App extends Component {
 
   render() { 
     return ( 
+    <body className='container-fluid'>
       <div>
-        <div>
+        <div className='row'>
           <Header />
         </div> 
-        <div>
-          <MusicList />
+        <div className='row'>
+            <MusicList />
+        </div>
+        <div className='row'>
           <SongForm />
         </div>
-        <div>
+        <div className='row'>
           <Footer />
         </div>
       </div>
+    </body>
      );
   }
 }
