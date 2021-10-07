@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Header from './Header/Header';
+import MusicList from './MusicList/MusicList';
+import Footer from './Footer/Footer';
 
 
 class App extends Component {
@@ -6,8 +9,23 @@ class App extends Component {
     super(props);
     this.state = {  }
   }
+
+
+
   render() { 
-    return (  );
+    return ( 
+      <div>
+        <div>
+          <Header />
+        </div> 
+        <div>
+          <MusicList />
+        </div>
+        <div>
+          <Footer />
+        </div>
+      </div>
+     );
   }
 }
  
