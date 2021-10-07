@@ -11,7 +11,7 @@ class MusicList extends Component {
          }
     }
 
-    deleteSong = this.deleteSong.bind(this)
+    // deleteSong = this.deleteSong.bind(this)
 
     componentDidMount(){
         this.getAllSongs();
@@ -24,9 +24,9 @@ class MusicList extends Component {
         });
     }
 
-    async deleteSong(id){
-        return await axios.delete('http://127.0.0.1:8000/music/' + id + '/')
-    }
+    // async deleteSong(song){
+    //     return await axios.delete('http://127.0.0.1:8000/music/' + song.id + '/')
+    // }
 
     displaySongs = () => {
         return this.state.songs.map( (song, index) => {

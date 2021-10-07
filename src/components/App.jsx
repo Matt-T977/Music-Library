@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header/Header';
 import MusicList from './MusicList/MusicList';
+import SongForm from './SongForm/SongForm';
 import Footer from './Footer/Footer';
 
 
@@ -20,6 +21,7 @@ class App extends Component {
         </div> 
         <div>
           <MusicList />
+          <SongForm />
         </div>
         <div>
           <Footer />
