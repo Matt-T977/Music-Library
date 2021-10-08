@@ -5,7 +5,7 @@ import axios from 'axios';
 class SongForm extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
             title: '',
             artist: '',
             album: '',
@@ -23,37 +23,43 @@ class SongForm extends Component {
         });
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         event.preventDefault();
-        axios.post('http://127.0.0.1:8000/music/', this.state);
+        this.props.addSong(this.state);
     }
 
     render() { 
         return ( 
-            <div className='row'>
-                <form onSubmit={this.handleSubmit} method='POST'>
-                    <label>
-                        Title:
-                        <input name='title' type="text" value={this.state.title} onChange={this.handleChange} />
-                    </label>
-                    <label>
-                        Artist:
-                        <input name='artist' type="text" value={this.state.artist} onChange={this.handleChange} />
-                    </label>
-                    <label>
-                        Album:
-                        <input name='album' type="text" value={this.state.album} onChange={this.handleChange} />
-                    </label>
-                    <label>
-                        Genre:
-                        <input name='genre' type="text" value={this.state.genre} onChange={this.handleChange} />
-                    </label>
-                    <label>
-                        Release Date:
-                        <input name='release_date' type="datetime-local" value={this.state.release_date} onChange={this.handleChange} />
-                    </label>
-                    <input type="submit" value="Add Song" />
-                </form>
+            <div className='row mt-5 table-positon'>
+                <div>
+                    <form onSubmit={this.handleSubmit} className='post'>
+                        <div className='row'>
+                            <div className='col'>
+                                    Title:
+                                    <input className='form-control m-1' name='title' type="text" value={this.state.title} onChange={this.handleChange} />
+                            </div>
+                            <div className='col'>
+                                    Artist:
+                                    <input className='form-control m-1' name='artist' type="text" value={this.state.artist} onChange={this.handleChange} />
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col'>
+                                    Album:
+                                    <input className='form-control m-1' name='album' type="text" value={this.state.album} onChange={this.handleChange} />
+                            </div>
+                            <div className='col'>
+                                    Genre:
+                                    <input className='form-control m-1' name='genre' type="text" value={this.state.genre} onChange={this.handleChange} />
+                            </div>
+                            <div className='col'>
+                                    Release Date:
+                                    <input className='form-control m-1' name='release_date' type="datetime-local" value={this.state.release_date} onChange={this.handleChange} />
+                            </div>
+                        </div>
+                        <input className='form-control mt-4 m-1' type="submit" value="Add Song" />
+                    </form>
+                </div>
             </div>
          );
     }

@@ -1,9 +1,11 @@
 .footer-bg {
     background-color: #FFD369;
+    color: #222831;
 }
 
 .footer-format {
-    text-align: center;
+    text-align: right;
     position: absolute;
     bottom: 0%;
+    width: auto; 
 }

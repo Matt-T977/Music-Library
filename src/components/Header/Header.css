@@ -1,7 +1,8 @@
 .header-bg {
     background-color: #FFD369;
+    color: #222831;
 }
 
 .header-format {
-    text-align: center;
+    text-align: right;
 }

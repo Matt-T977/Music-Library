@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './MusicList.css'
 import axios from 'axios'
 
 
@@ -6,48 +7,20 @@ import axios from 'axios'
 class MusicList extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
-            songs: []
-         }
+        this.state = {}
     }
 
-
-    componentDidMount(){
-        this.getAllSongs();
-    }
-
-    async getAllSongs(){
-        let response = await axios.get('http://127.0.0.1:8000/music/');
-        this.setState({
-            songs: response.data
-        });
-    }
-
-    handleDelete = async (id) =>{
-        const path = 'http://127.0.0.1:8000/music/' + id + '/'
-        await axios.delete(path).then(res => {
-            this.setState({
-                songs: res.data
-            })
-        })
-        .catch(err => {
-            console.log(err);
-        });
-    }
-
-    displaySongs = () => {
-        return this.state.songs.map( (song, index) => {
+    displaySongs = (props) => {
+        return this.props.songs.map( (song, index) => {
             const {id, title, artist, album, release_date, genre, number_of_likes, number_of_dislikes} = song;
             return (
-                <tr className='row text-center' key={id}>
-                    <td className='col border'>{title}</td>
-                    <td className='col border'>{artist}</td>
-                    <td className='col border'>{album}</td>
-                    <td className='col border'>{release_date}</td>
-                    <td className='col border'>{genre}</td>
-                    <td className='col border'>{number_of_likes}</td>
-                    <td className='col border'>{number_of_dislikes}</td>
-                    <button className='col border' onClick={() => this.handleDelete(id)}>Delete</button>
+                <tr key={id}>
+                    <th scope='row'>{title}</th>
+                    <td>{artist}</td>
+                    <td>{album}</td>
+                    <td>{release_date}</td>
+                    <td>{genre}</td>
+                    <button type='button' className='btn btn-md' onClick={() => this.props.handleDelete(id)}>Delete</button>
                 </tr>
             )    
         });
@@ -55,39 +28,31 @@ class MusicList extends Component {
 
     render() { 
         return ( 
-            <table>
+            <table className='table table-bg-color table-striped rounded my-5 text-center'>
                 <thead>
-                    <th className='row text-center'>
-                        <td className='col border'>
+                    <tr>
+                        <th scope='col'>
                             Title
-                        </td>
-                        <td className='col border'>
+                        </th>
+                        <th scope='col'>
                             Artist
-                        </td>
-                        <td className='col border'>
+                        </th>
+                        <th scope='col'>
                             Album
-                        </td>
-                        <td className='col border'>
+                        </th>
+                        <th scope='col'>
                             Release Date
-                        </td>
-                        <td className='col border'>
+                        </th>
+                        <th scope='col'>
                             Genre
-                        </td>
-                        <td className='col border'>
-                            Likes
-                        </td>
-                        <td className='col border'>
-                            Dislikes
-                        </td>
-                        <td className='col border'>
+                        </th>
+                        <th scope='col'>
                             Delete Song
-                        </td>
-                    </th>
+                        </th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <div>
-                        {this.displaySongs()}
-                    </div>
+                    {this.displaySongs(this.props)}
                 </tbody>
             </table>
          );
