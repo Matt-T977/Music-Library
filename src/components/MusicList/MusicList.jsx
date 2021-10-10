@@ -17,7 +17,7 @@ class MusicList extends Component {
                     <th scope='row'>{title}</th>
                     <td>{artist}</td>
                     <td>{album}</td>
-                    <td>{release_date}</td>
+                    <td>{release_date.slice(0, 4)}</td>
                     <td>{genre}</td>
                     <td>{number_of_likes}</td>
                     <td>{number_of_dislikes}</td>

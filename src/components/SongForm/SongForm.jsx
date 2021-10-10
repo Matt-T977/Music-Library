@@ -57,6 +57,28 @@ class SongForm extends Component {
                                     <input className='form-control shadow m-1' id='input-style-right' name='release_date' type="datetime-local" value={this.state.release_date} onChange={this.handleChange} />
                             </div>
                         </div>
+                        {/* Modal Code */}
+                        {/* <div>
+                            <input type="button" className='form-control shadow  mt-4 m-1' id='submit-format' data-bs-toggle='modal' data-bs-target='addSongModal' value='Add Song'/>
+                        </div>
+                        <div className='modal' id='addSongModal' tabindex='-1'>
+                            <div className="modal-dialog">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title">Add a New Song!</h5>
+                                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div className="modal-body">
+                                        <p>Song Details</p>
+                                    </div>
+                                    <div className="modal-footer">
+                                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <input className='form-control shadow  mt-4 m-1' id='submit-format' type="submit" value="Add Song" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div> */}
+                        {/* Modal Code */}
                         <input className='form-control shadow  mt-4 m-1' id='submit-format' type="submit" value="Add Song" />
                     </form>
                 </div>
