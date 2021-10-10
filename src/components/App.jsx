@@ -43,8 +43,21 @@ class App extends Component {
     alert(`The song "${song.title}" By: ${song.artist} was successfully added!`)
   }
 
+  // handleLike = async (id) => {
+  //   const path = 'http://127.0.0.1:8000/music/' + id + '/';
+  //   await axios.patch(path)
+  //   .then(res => {
+  //     let song = this.state.songs.filter(song = (id) => {
+  //       if(song.id === id){
+  //         return true;
+  //       }
+  //     })
+  //     song.number_of_likes++
+  //   })
+  // }
+
   handleDelete = async (id) =>{
-    const path = 'http://127.0.0.1:8000/music/' + id + '/'
+    const path = 'http://127.0.0.1:8000/music/' + id + '/';
     await axios.delete(path)
     .then(res => {
       this.setState(previousState => {
@@ -68,7 +81,7 @@ class App extends Component {
 
   render() { 
     return ( 
-      <div className='container-fluid app-bg'>
+      <div className='container-fluid mx-auto app-bg'>
         <div className='row'>
           <Header />
         </div>

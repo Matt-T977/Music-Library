@@ -1,9 +1,9 @@
 .header-bg {
     background-color: #FFD369;
-    width: auto;
     color: #222831;
 }
 
-.header-format {
+#header {
     text-align: right;
+    width: 100%;
 }

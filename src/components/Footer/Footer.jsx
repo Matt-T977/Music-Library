@@ -4,7 +4,7 @@ import './Footer.css'
 
 const Footer = () => {
     return <div className='footer-bg footer-format shadow mt-5'>
-                Copywrite © 2021 | Music Library
+                Copywrite © 2021 | &#119070; &#119136;  Music Library
             </div> 
 }
 
