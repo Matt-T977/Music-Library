@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './MusicList.css'
-import axios from 'axios'
 
 
 
@@ -20,7 +19,9 @@ class MusicList extends Component {
                     <td>{album}</td>
                     <td>{release_date}</td>
                     <td>{genre}</td>
-                    <button type='button' className='btn btn-md' onClick={() => this.props.handleDelete(id)}>Delete</button>
+                    <td>{number_of_likes}</td>
+                    <td>{number_of_dislikes}</td>
+                    <button type='button' className='btn btn-sm rounded-circle btn-outline-danger p-1 mt-1' onClick={() => this.props.handleDelete(id)}>Delete</button>
                 </tr>
             )    
         });
@@ -28,8 +29,8 @@ class MusicList extends Component {
 
     render() { 
         return ( 
-            <table className='table table-bg-color table-striped rounded my-5 text-center'>
-                <thead>
+            <table className='table table-bg-color table-striped shadow table-format mt-5 text-center table-borderless'>
+                <thead className='table-header-color'>
                     <tr>
                         <th scope='col'>
                             Title
@@ -47,7 +48,13 @@ class MusicList extends Component {
                             Genre
                         </th>
                         <th scope='col'>
-                            Delete Song
+                            Likes
+                        </th>
+                        <th scope='col'>
+                            Dislikes
+                        </th>
+                        <th scope='col'>
+                            Options
                         </th>
                     </tr>
                 </thead>

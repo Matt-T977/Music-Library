@@ -2,6 +2,11 @@
     background-color: #FFD369;
 }
 
+.table-header-color {
+    background-color: #222831;
+    color: #FFD369;
+}
+
 .table-format {
-    
+    border-radius: 12px;
 }

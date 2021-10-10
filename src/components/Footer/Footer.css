@@ -5,7 +5,7 @@
 
 .footer-format {
     text-align: right;
-    position: absolute;
+    position: fixed;
     bottom: 0%;
     width: auto; 
 }

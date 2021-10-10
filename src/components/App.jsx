@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './App.css'
+import './App.css';
 import Header from './Header/Header';
 import SearchBar from './SearchBar/SearchBar';
 import MusicList from './MusicList/MusicList';
@@ -15,6 +15,7 @@ class App extends Component {
       songs: []
      }
   }
+
 
   componentDidMount(){
     this.getAllSongs();
@@ -67,23 +68,22 @@ class App extends Component {
 
   render() { 
     return ( 
-    <body className='container-fluid app-bg'>
-      <div>
+      <div className='container-fluid app-bg'>
         <div className='row'>
           <Header />
         </div>
         <div className='row'>
           <div className='col-1'></div>
           <div className='col-10'>
-            <SearchBar songs={this.state.songs} filterSearch={this.filterSearch}/>
-            <MusicList songs={this.state.songs} handleDelete={this.handleDelete}/>
+            <SearchBar songs={this.state.songs} filterSearch={this.filterSearch} />
+            <MusicList songs={this.state.songs} handleDelete={this.handleDelete} />
           </div>
           <div className='col-1'></div>
         </div>
         <div className='row'>
           <div className='col-1'></div>
           <div className='col-10'>
-          <SongForm addSong={this.addSong}/>
+            <SongForm addSong={this.addSong} />
           </div>
           <div className='col-1'></div>
         </div>
@@ -91,8 +91,7 @@ class App extends Component {
           <Footer />
         </div>
       </div>
-    </body>
-     );
+    );
   }
 }
  

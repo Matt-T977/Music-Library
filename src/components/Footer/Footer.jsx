@@ -3,7 +3,7 @@ import './Footer.css'
 
 
 const Footer = () => {
-    return <div className='footer-bg footer-format'>
+    return <div className='footer-bg footer-format shadow mt-5'>
                 Copywrite © 2021 | Music Library
             </div> 
 }
