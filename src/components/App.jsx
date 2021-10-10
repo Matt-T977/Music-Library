@@ -75,7 +75,7 @@ class App extends Component {
         <div className='row'>
           <div className='col-1'></div>
           <div className='col-10'>
-            <SearchBar songs={this.state.songs} filterSearch={this.filterSearch} />
+            <SearchBar songs={this.state.songs} filterSearch={this.filterSearch} getAllSongs={this.getAllSongs} />
             <MusicList songs={this.state.songs} handleDelete={this.handleDelete} />
           </div>
           <div className='col-1'></div>

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './SearchBar.css';
+import './SearchBar.scss';
 
 class SearchBar extends Component {
     constructor(props) {
         super(props);
         this.state = { 
             filterInput: '',
-            filteredSongList: []
+            filteredSongList: [],
         }
     }
 
@@ -41,18 +41,25 @@ class SearchBar extends Component {
         console.log(this.props.songs)
     }
 
+    handleSubmit = async (event) => {
+        event.preventDefault();
+        this.state.filterInput = '';
+        this.props.getAllSongs();
+    }
+
 
     render() { 
         return ( 
             <div>
                 <form onSubmit={this.handleSubmit}>
-                <div className='h4'>
-                    Search:
-                    <input className='form-control search-bar-format' name='filterInput' type="text" value={this.state.filterInput} onChange={this.handleChange} />
-                </div>
+                    <div className='h4'>
+                        Search:
+                        <input className='form-control' id='search-bar-style' name='filterInput' type="text" value={this.state.filterInput} onChange={this.handleChange} />
+                        <input className='form-control mt-1' id='reset-button' name='reset' type='submit' value='Reset Search' />
+                    </div>
                 </form>
             </div>
-         );
+        );
     }
 }
  

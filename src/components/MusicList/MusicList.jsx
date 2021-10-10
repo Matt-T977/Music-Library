@@ -29,7 +29,7 @@ class MusicList extends Component {
 
     render() { 
         return ( 
-            <table className='table table-bg-color table-striped shadow table-format mt-5 text-center table-borderless'>
+            <table className='table table-bg-color table-format table-striped table-borderless shadow mt-5 text-center'>
                 <thead className='table-header-color'>
                     <tr>
                         <th scope='col'>
