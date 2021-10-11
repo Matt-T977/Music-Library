@@ -43,18 +43,25 @@ class App extends Component {
     alert(`The song "${song.title}" By: ${song.artist} was successfully added!`)
   }
 
-  // handleLike = async (id) => {
-  //   const path = 'http://127.0.0.1:8000/music/' + id + '/';
-  //   await axios.patch(path)
-  //   .then(res => {
-  //     let song = this.state.songs.filter(song = (id) => {
-  //       if(song.id === id){
-  //         return true;
-  //       }
-  //     })
-  //     song.number_of_likes++
-  //   })
-  // }
+  handleLike = async (id) => {
+    const path = 'http://127.0.0.1:8000/music/like/' + id + '/';
+    await axios.patch(path)
+    .then(res => {
+      this.setState({
+        songs: res.data
+      })
+    })
+  }
+
+  handleDislike = async (id) => {
+    const path = 'http://127.0.0.1:8000/music/dislike/' + id + '/';
+    await axios.patch(path)
+    .then(res => {
+      this.setState({
+        songs: res.data
+      })
+    })
+  }
 
   handleDelete = async (id) =>{
     const path = 'http://127.0.0.1:8000/music/' + id + '/';
@@ -89,7 +96,7 @@ class App extends Component {
           <div className='col-1'></div>
           <div className='col-10'>
             <SearchBar songs={this.state.songs} filterSearch={this.filterSearch} getAllSongs={this.getAllSongs} />
-            <MusicList songs={this.state.songs} handleDelete={this.handleDelete} />
+            <MusicList songs={this.state.songs} handleDelete={this.handleDelete} handleLike={this.handleLike} handleDislike={this.handleDislike} />
           </div>
           <div className='col-1'></div>
         </div>
