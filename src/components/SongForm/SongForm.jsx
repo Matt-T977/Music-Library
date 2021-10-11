@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './SongForm.scss';
+import NewSongModal from '../NewSongModal/NewSongModal';
 
 
 class SongForm extends Component {
@@ -24,8 +25,8 @@ class SongForm extends Component {
     }
 
     handleSubmit = async (event) => {
-        // event.preventDefault();
         this.props.addSong(this.state);
+        event.preventDefault();
     }
 
     render() { 
@@ -57,8 +58,9 @@ class SongForm extends Component {
                                     <input className='form-control shadow m-1' id='input-style-right' name='release_date' type="datetime-local" value={this.state.release_date} onChange={this.handleChange} />
                             </div>
                         </div>
-                        <input className='form-control shadow  mt-4 m-1' id='submit-format' type="submit" value="Add Song" />
+                        <NewSongModal song={this.state} />
                     </form>
+                    
                 </div>
             </div>
          );

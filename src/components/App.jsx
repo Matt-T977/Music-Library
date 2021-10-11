@@ -31,52 +31,54 @@ class App extends Component {
   addSong = async (song) => {
     await axios.post('http://127.0.0.1:8000/music/', song)
     .then( res => {
-      let newList = this.state.songs
-      newList.push(song)
-      this.setState({
-        songs: newList
+      this.getAllSongs();
       })
-    })
     .catch(err => {
       console.log(err);
     });
-    alert(`The song "${song.title}" By: ${song.artist} was successfully added!`)
+  }
+
+  editSong = async (id, song) => {
+    const path = 'http://127.0.0.1:8000/music/' + id + '/'
+    await axios.put(path, song)
+    .then(res => {
+      this.getAllSongs();
+      })
+    .catch(err => {
+      console.log(err);
+    });
   }
 
   handleLike = async (id) => {
     const path = 'http://127.0.0.1:8000/music/like/' + id + '/';
     await axios.patch(path)
     .then(res => {
-      this.setState({
-        songs: res.data
+      this.getAllSongs();
       })
-    })
+    .catch(err => {
+      console.log(err);
+    });
   }
 
   handleDislike = async (id) => {
     const path = 'http://127.0.0.1:8000/music/dislike/' + id + '/';
     await axios.patch(path)
-    .then(res => {
-      this.setState({
-        songs: res.data
+    .then(res=> {
+      this.getAllSongs();
       })
-    })
+    .catch(err => {
+      console.log(err);
+    });
   }
 
   handleDelete = async (id) =>{
     const path = 'http://127.0.0.1:8000/music/' + id + '/';
     await axios.delete(path)
     .then(res => {
-      this.setState(previousState => {
-          let newMusicList = previousState.songs.filter(target => 
-            target.id !== id)
-          return {
-            songs: newMusicList
-            };
-        })
-    })
+      this.getAllSongs();
+      })
     .catch(err => {
-        console.log(err);
+      console.log(err);
     });
   }
 
@@ -96,7 +98,7 @@ class App extends Component {
           <div className='col-1'></div>
           <div className='col-10'>
             <SearchBar songs={this.state.songs} filterSearch={this.filterSearch} getAllSongs={this.getAllSongs} />
-            <MusicList songs={this.state.songs} handleDelete={this.handleDelete} handleLike={this.handleLike} handleDislike={this.handleDislike} />
+            <MusicList songs={this.state.songs} handleDelete={this.handleDelete} handleLike={this.handleLike} handleDislike={this.handleDislike} editSong={this.editSong} />
           </div>
           <div className='col-1'></div>
         </div>

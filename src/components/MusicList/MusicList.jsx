@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import EditSongModal from '../EditSongModal/EditSongModal';
 import './MusicList.css'
 
 
@@ -23,6 +24,7 @@ class MusicList extends Component {
                     <td>{number_of_dislikes}</td>
                     <button type='button' className='btn btn-sm rounded-circle btn-outline-info p-1 mt-1' onClick={() => this.props.handleLike(id)}>Like</button>
                     <button type='button' className='btn btn-sm rounded-circle btn-outline-primary p-1 mt-1' onClick={() => this.props.handleDislike(id)}>Dislike</button>
+                    {/* <EditSongModal song={song} editSong={this.props.editSong} />  */}
                     <button type='button' className='btn btn-sm rounded-circle btn-outline-danger p-1 mt-1' onClick={() => this.props.handleDelete(id)}>Delete</button>
                 </tr>
             )    
