@@ -36,9 +36,6 @@ class SearchBar extends Component {
             }
         }); 
         this.props.filterSearch(newSongs)
-        console.log(this.state.filterInput)
-        console.log(newSongs)
-        console.log(this.props.songs)
     }
 
     handleSubmit = async (event) => {
