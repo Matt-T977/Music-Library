@@ -3,6 +3,8 @@ Backend : [Music Library API](https://github.com/Matt-T977/Music_Library)
 
 ## Developer: Matthew Taylor
 
+#### Stack: MySQL - Python | Django | Django REST - Javascript | React JS
+
 The music library is an application that is there to help the user compile a comprehensive list of 
 their favorite or collected music in an intuitive and easy to use manner. This has been accomlplished
 by using Django and Django REST Framework with a MySQL database to handle user generated data for their 
